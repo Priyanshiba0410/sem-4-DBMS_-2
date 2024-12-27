@@ -1,0 +1,368 @@
+--Part - A
+
+ 
+--1. Create a new database named “Darshan”. 
+
+use Darshan
+
+--2. Create another new database named “DIET”.
+
+use Diet
+ 
+--3. List all databases. 
+
+show dbs
+
+--4. Check the current database.
+
+use Diet
+ 
+--5. Drop “DIET” database.
+
+db.dropDatabase()
+ 
+--6. Create a collection named “Student” in the “Darshan” database.
+
+use Darshan
+db.createCollection("Student")
+ 
+--7. Create a collection named “Department” in the “Darshan” database. 
+
+db.createCollection("Department")
+
+--8. List all collections in the “Darshan” database.
+
+db.show collection
+ 
+--9. Insert a single document using insertOne into “Department” collection. (Dname:’CE’, HOD:’Patel’) 
+
+db.Department.insertOne({Dname:"CE"},{HOD:"Patel"})
+
+--10. Insert two document using insertMany into “Department” collection. (Dname:’IT’ and Dname:’ICT’)
+
+db.Department.insertMany([{Dname:"CE"},{Dname:"ICT"}])
+ 
+--11. Drop a collection named “Department” from the “Darshan” database.
+
+db.Departmentdrop()
+ 
+--12. Insert a single document using insertOne into “Student” collection.  
+(Fields are Name, City, Branch, Semester, Age) Insert your own data.
+
+db.Student.insertOne({Name:"Shreeya"},{City:"Rajkot"},{Branch:"b.tech"},{Semester:4},{Age:19})
+
+ 
+--13. Insert three documents using insertMany into “Student” collection. 
+(Fields are Name, City, Branch, Semester, Age) Insert your three friend’s data. 
+
+db.Student.insertMany([
+			{Name:"shreeya", City:"Gondal", Branch:"CSE", Semester:4, Age:18},
+			{Name:"Priyanshi", City:"Rajkot", Branch:"B.Tech", Semester:4, Age:19},
+			{Name:"shree", City:"Gondal", Branch:"bsc", Semester:4, Age:18},
+		      ])
+
+--14. Check whether “Student” collection exists or not.
+
+db.collection("Student")
+or
+db.show collection
+ 
+--15. Check the stats of “Student” collection.
+
+db.collection("Student")
+or
+db.show collection
+ 
+--16. Drop the “Student” collection. 
+
+db.Student.drop()
+ 
+--17. Create a collection named “Deposit”. 
+
+db.createcollection("Deposit")
+
+--18. Insert following data in to “Deposit” collection. 
+
+db.Deposit.insertMant([
+			{ACTNO:101,CNAME:"ANIL",BNAME:"VRCE",AMOUNT:1000.00,CITY:"RAJKOT"},
+			{ACTNO:102,CNAME:"SUNIL",BNAME:"AJNI",AMOUNT:5000.00,CITY:"SURAT"},
+			{ACTNO:103,CNAME:"MEHUL",BNAME:"KAROLBAGH",AMOUNT:3500.00,CITY:"BARODA"},	
+			{ACTNO:104,CNAME:"MADHURI",BNAME:"CHANDI",AMOUNT:1200.00,CITY:"AHEMDABAD"},	
+			{ACTNO:105,CNAME:"PRMOD",BNAME:"M.G.ROAD",AMOUNT:3000.00,CITY:"SURAT"},	
+			{ACTNO:106,CNAME:"SANDIP",BNAME:"ANDHERI",AMOUNT:2000.00,CITY:"RAJKOT"},	
+			{ACTNO:107,CNAME:"SHIVANI",BNAME:"VIRAR",AMOUNT:1000.00,CITY:"SURAT"},	
+			{ACTNO:108,CNAME:"KRANTI",BNAME:"NEHRU PLACE",AMOUNT:5000.00,CITY:"RAJKOT"},	
+			])
+
+--19. Display all the documents of “Deposit” collection. 
+
+DB.Student.find()
+
+--20. Drop the “Deposit” collection. 
+
+db.Student.drop()
+
+
+-------------------------------------part --- B--------------------------------------------------
+
+--1. Create a new database named “Computer”.
+
+use database Computer
+
+--2. Create a collection named “Faculty” in the “Computer” database.
+
+db.createcollection("Faculty")
+ 
+3. Insert a below document using insertOne into “Faculty” collection.
+
+db.Faculty.insertOne({FID:1},{FNAME:"ANIL"},{BNAME:"CE"},{SALARY:10000},{JDATE:"1995-03-01"})
+
+--4. Insert below documents using insertMany into “Faculty” collection. 
+
+db.Faculty.insertMany([
+			{FID:2,FNAME:"SUNIL",BNAME:"CE",SALARY:50000,JDATE:"1996-01-04"},
+			{FID:3,FNAME:"MEHUL",BNAME:"IT",SALARY:35000,JDATE:"1995-11-17"},
+			{FID:4,FNAME:"MADHURI",BNAME:"IT",SALARY:12000,JDATE:"1995-12-17"},
+			{FID:5,FNAME:"PRMOD",BNAME:"CE",SALARY:30000,JDATE:"1996-03-27"},
+			{FID:6,FNAME:"SANDIP",BNAME:"CE",SALARY:20000,JDATE:"1996-03-31"},
+			{FID:7,FNAME:"SHIVANI",BNAME:"CE",SALARY:10000,JDATE:"1995-09-05"},
+			{FID:8,FNAME:"KRANTI",BNAME:"IT",SALARY:50000,JDATE:"1995-07-02"},
+			])
+
+--5. Display all the documents of “Faculty” collection. 
+
+DB.fACULTY.FIND().FOREACH(PRINTJSON)
+
+--6. Drop the “Faculty” collection. 
+
+db.Faculty.drop()
+
+--7. Drop the “Computer” database. 
+
+db.dropDatabase
+
+-------------------------------------part --- C--------------------------------------------------
+
+
+
+----------------------------------------------------------------------------LAB ---- 9-----------------------------------------------------------------------------------------------------
+====================================================================================PART ----- A===========================================================================================
+
+use database BANK_INFO
+
+db.createcollection("Deposit")
+
+db.Deposit.insertMany([
+			{
+    "ACTNO": 101,
+    "CNAME": "ANIL",
+    "BNAME": "VRCE",
+    "AMOUNT": 1000,
+    "ADATE": "1995-03-01"
+  },
+  {
+    "ACTNO": 102,
+    "CNAME": "SUNIL",
+    "BNAME": "AJNI",
+    "AMOUNT": 5000,
+    "ADATE": "1996-01-04"
+  },
+  {
+    "ACTNO": 103,
+    "CNAME": "MEHUL",
+    "BNAME": "KAROLBAGH",
+    "AMOUNT": 3500,
+    "ADATE": "1995-11-17"
+  },
+  {
+    "ACTNO": 104,
+    "CNAME": "MADHURI",
+    "BNAME": "CHANDI",
+    "AMOUNT": 1200,
+    "ADATE": "1995-12-17"
+  },
+  {
+    "ACTNO": 105,
+    "CNAME": "PRMOD",
+    "BNAME": "M.G. ROAD",
+    "AMOUNT": 3000,
+    "ADATE": "1996-03-27"
+  },
+  {
+    "ACTNO": 106,
+    "CNAME": "SANDIP",
+    "BNAME": "ANDHERI",
+    "AMOUNT": 2000,
+    "ADATE": "1996-03-31"
+  },
+  {
+    "ACTNO": 107,
+    "CNAME": "SHIVANI",
+    "BNAME": "VIRAR",
+    "AMOUNT": 1000,
+    "ADATE": "1995-09-05"
+  },
+  {
+    "ACTNO": 108,
+    "CNAME": "KRANTI",
+    "BNAME": "NEHRU PLACE",
+    "AMOUNT": 5000,
+    "ADATE": "1995-07-02"
+  }
+	])
+
+--1. Retrieve/Display every document of Deposit collection. 
+
+db.Deposit.find().forEach(printjson)
+
+2. Display only one document of Deposit collection. (Use: findOne()) 
+
+db.Deposit.findOne()
+
+--3. Insert following document into Deposit collection. (Use: insertOne()) 
+
+db.Deposit.insertOne({"ACTNO": 109},{"CNAME": "KIRTI"},{"BNAME": "VIRAR"},{"AMOUNT": 3000},{"ADATE": "1997-05-03"})
+
+--4. Insert following documents into Deposit collection. (Use: insertMany())
+
+db.Deposit.insertMany([
+ {  
+    "ACTNO": 110,
+    "CNAME": "MITALI",
+    "BNAME": "ANDHERI",
+    "AMOUNT": 4500,
+    "ADATE": "1995-09-04"},
+{
+    "ACTNO": 111,
+    "CNAME": "RAJIV",
+    "BNAME": "NEHRU PLACE",
+    "AMOUNT": 7000,
+    "ADATE": "1998-10-02"
+
+}
+])
+ 
+--5. Display all the documents of ‘VIRAR’ branch from Deposit collection. 
+
+db.Deposit.find({"Bname":"VIRAR"})
+
+--6. Display all the documents of Deposit collection whose amount is between 3000 and 5000. 
+
+db.Deposit.find({and :[{AMOUNT:{$gte :3000}},{AMOUNT:{$lte :5000}}]})
+
+--7. Display all the documents of Deposit collection whose amount is greater than 2000 and branch is VIRAR.
+
+db.Deposit.find({and :[{AMOUNT:{$gt :2000}},{BNAME:{$eq :"VIRAR"}}]})
+
+--8. Display all the documents with CNAME, BNAME and AMOUNT fields from Deposit collection.
+
+db.Deposit.find({}{CNAME:1,BNAME:1,AMOUNT:1,_id:0})
+
+--9. Display all the documents of Deposit collection on ascending order by CNAME.
+
+db.Deposit.find().sort({CNAME:1})
+ 
+10. Display all the documents of Deposit collection on descending order by BNAME.
+
+db.Deposit.find().sort({BNAME:-1})
+ 
+--11. Display all the documents of Deposit collection on ascending order by ACTNO and descending order by AMOUNT.
+
+db.Deposit.find().sort({and :[{ACTNO:1},{AMOUNT:-1}]})
+ 
+--12. Display only two documents of Deposit collection. 
+
+db.Deposit.find().limit(2)
+ 
+--13. Display 3rd document of Deposit collection. 
+
+db.Deposit.find().skip(2).limit(1)
+ 
+--14. Display 6th and 7th documents of Deposit collection. 
+
+ db.Deposit.find().skip(4).limit(2)
+
+15. Display the count of documents in Deposit collection.
+
+db.Deposit.find().count()
+
+
+-------------------------------------part --- B--------------------------------------------------
+
+--1. Insert following documents into “Student” collection. (Use: insertMany())
+db.createcollection("Student")
+
+db.Student.insertMany([
+			{ "_id": 1, "name": "John", "age": 30, "city": "New York", "isActive": true } 
+			{ "_id": 2, "name": "Jane", "age": 25, "city": "Los Angeles", "isActive": false } 
+			{ "_id": 3, "name": "Tom", "age": 35, "city": "Chicago", "isActive": true } 
+			{ "_id": 4, "name": "Lucy", "age": 28, "city": "San Francisco", "isActive": true } 
+			{ "_id": 5, "name": "David", "age": 40, "city": "Miami", "isActive": false } 
+			{ "_id": 6, "name": "Eva", "age": 23, "city": "Boston", "isActive": true } 
+			{ "_id": 7, "name": "Nick", "age": 38, "city": "Seattle", "isActive": false } 
+			{ "_id": 8, "name": "Sophia", "age": 27, "city": "New York", "isActive": true } 
+			{ "_id": 9, "name": "Liam", "age": 32, "city": "Los Angeles", "isActive": false } 
+			{ "_id": 10, "name": "Olivia", "age": 29, "city": "San Diego", "isActive": true } 
+                       ])
+--2. Display all documents of "Student" collection. 
+
+db.Student.find().forEach(printjason)
+
+--3. Display all documents of "Student" collection whose age is 30. 
+
+db.Student.find({"age":30})
+
+--4. Display all documents of "Student" collection whose age is greater than 25.
+
+db.Student.find({"age":{$gt: 25}})
+ 
+--5. Display all documents of "Student" collection whose name is "John" and age is 30. 
+
+db.Student.find({$and:[{"name":{$eq: "John"}},{"age":{$eq: 30}}]})
+
+--6. Display all documents of "Student" collection whose age is not equal to 25. 
+
+db.Student.find({"age":{$ne: 25}})
+
+--7. Display all documents of "Student" collection whose age is equal to 25 or 30 or 35. (using $or as well as using $in). 
+ 
+db.Student.find({$or:[{"age":{$eq: 25}},{"age":{$eq: 30}},{"age":{$eq: 35}}]})
+
+--8. Display all documents of "Student" collection whose name is "John" or age is 30.
+
+db.Student.find({$or:[{"name":{$eq: "John"}},{"age":{$eq: 30}}]})
+ 
+--9. Display all documents of "Student" collection whose name is "John" and city is New York.
+
+db.Student.find({$and:[{"name":{$eq: "John"}},{"city":{$eq: "New York"}}]})
+
+ 
+--10. Display name and age of students from "Student" collection whose name is "John" and city is New York. 
+
+db.Student.find({$and:[{"name":{$eq: "John"}},{"city":{$eq: "New York"}}]},{_id:0,name:1,Age:1})
+
+
+-------------------------------------------------------Part – C--------------------------------------
+
+--1. Display name of students from "Student" collection whose age is between to 25 and 35 and sort output by age in ascending order.
+
+db.Student.find({$and:[{"age":{$gte: 25}},{"age":{$lte: 35}}]},{_id:0,name:1}).sort({age:1})
+
+--2. Display all documents of "Student" collection and sort all the documents by name in ascending order and then by age in descending.
+
+db.Student.find().sort({$and :[{name:1},{age:-1}]})
+
+--3. Display first five documents of "Student" collection.
+
+db.Student.find().limit(5)
+ 
+--4. Display fourth and fifth documents of "Student" collection.
+
+db.Student.find().limit(2).skip(3)
+
+--5. Display the name of oldest student from "Student" collection. 
+
+
+--6. Display all documents of "Student" collection in such a way that skip the first 2 documents and return the rest documents.
+
+db.Student.find().limit(6).skip(2)
