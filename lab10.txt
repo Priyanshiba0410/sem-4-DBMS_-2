@@ -1,0 +1,56 @@
+1. Display Female students and belong to Rajkot city.
+db.Student_data.find({$and:[{"Gender":"Female"},{"city":"Rajkot"}]})
+
+---2. Display students not studying in 3rd sem. 
+db.Student_data.find({sem:{$ne :3}})
+
+---3. Display students whose city is Jamnagar or Baroda. (use: IN) 
+db.Student_data.find({city:{$in :["Jamnagar","Baroda"]}})
+
+
+---4. Display first 2 students names who lives in Baroda. 
+db.Student_data.find({city:"Baroda"}).limit(2)
+
+
+---5. Display Male students who studying in 3rd sem. 
+db.Student_data.find({$and:[{"Gender":"Male"},{"sem":3}]})
+
+
+---6. Display sname and city and fees of those students whose roll no is less than 105. 
+db.Student_data.find({"Rollno":{$lt:105}},{Sname:1,City:1,Fees:1})
+
+
+---7. Update City of all students from 'Jamnagar' City and Department as 'CE' to 'Surat'. 
+db.student_data.updatemany({City:"Jamnagar"},{$set:{$and:[City:"CE",Department:"surat"]}})
+
+---8. Increase Fees by 500 where the Gender is not 'Female'. (Use: Not) 
+db.student_data.updatemany({Gender:{$ne:"Female"}}),{$inc:{Fees:500}})
+
+
+---9. Set the Department of all students from 'EE' and in Sem 3 to 'Electrical'. 
+db.student_data.updatemany({sem:3,department:EE},{$set:{department:"Electrical"}})
+
+
+---10. Update the Fees of students in 'Rajkot' who are male. 
+db.student_data.updatemany({Gender:"male",city:"rajkot"},{$set:{fees:500}})
+
+---11. Change City to 'Vadodara' for students in Sem 5 and with fees less than 10000. 
+db.student_data.updatemany({sem:5,fees:{$lt:10000}},{$set:{city:"vadodara"}})
+
+
+---12. Delete all students where the City is 'Ahmedabad' or GENDER is 'Male'. 
+db.student_data.updatemany({Gender:"male",city:"Ahmedabad"})
+
+
+---13. Delete students whose Rollno is not in the list [101, 105, 110]. 
+
+
+14. Delete students from the 'Civil' department who are in Sem 5 or Sem 7. 
+15. Delete all students who are not in the cities 'Rajkot', 'Baroda', or 'Jamnagar'. 
+16. Delete students whose Rollno is between 105 and 108. 
+17. Rename the City field to LOCATION for all students. 
+18. Rename the Department field to Branch where the Fees is less than 10000. 
+19. Rename Sname to Fullname for students with Rollno in [106, 107, 108]. 
+20. Rename Fees to Tuition_Fees for all students with Fees greater than 9000. 
+21. Rename Department to Major where the Fees is less than 15000 and Gender is 'Female'. 
+22. Rename City to Hometown for all students whose SEM is 3 and Department is not 'Mechanical'.
