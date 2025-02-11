@@ -1,0 +1,398 @@
+db.employee.insertMany([
+  {
+    EID: 1,
+    ENAME: "Nick",
+    GENDER: "Male",
+    JOININGDATE: "2013-01-01",
+    SALARY: 4000,
+    CITY: "London"
+  },
+  {
+    EID: 2,
+    ENAME: "Julian",
+    GENDER: "Female",
+    JOININGDATE: "2014-10-01",
+    SALARY: 3000,
+    CITY: "New York"
+  },
+  {
+    EID: 3,
+    ENAME: "Roy",
+    GENDER: "Male",
+    JOININGDATE: "2016-06-01",
+    SALARY: 3500,
+    CITY: "London"
+  },
+  {
+    EID: 4,
+    ENAME: "Tom",
+    GENDER: "Male",
+    JOININGDATE: null,
+    SALARY: 4500,
+    CITY: "London"
+  },
+  {
+    EID: 5,
+    ENAME: "Jerry",
+    GENDER: "Male",
+    JOININGDATE: "2013-02-01",
+    SALARY: 2800,
+    CITY: "Sydney"
+  },
+  {
+    EID: 6,
+    ENAME: "Philip",
+    GENDER: "Male",
+    JOININGDATE: "2015-01-01",
+    SALARY: 7000,
+    CITY: "New York"
+  },
+  {
+    EID: 7,
+    ENAME: "Sara",
+    GENDER: "Female",
+    JOININGDATE: "2017-08-01",
+    SALARY: 4800,
+    CITY: "Sydney"
+  },
+  {
+    EID: 8,
+    ENAME: "Emily",
+    GENDER: "Female",
+    JOININGDATE: "2015-01-01",
+    SALARY: 5500,
+    CITY: "New York"
+  },
+  {
+    EID: 9,
+    ENAME: "Michael",
+    GENDER: "Male",
+    JOININGDATE: null,
+    SALARY: 6500,
+    CITY: "London"
+  },
+  {
+    EID: 10,
+    ENAME: "John",
+    GENDER: "Male",
+    JOININGDATE: "2015-01-01",
+    SALARY: 8800,
+    CITY: "London"
+  }
+]);
+
+
+
+
+
+
+
+
+
+
+
+------------------part-a------------
+
+
+1. Find employees whose name start with E. 
+db.Employee.find({ ENAME: { $regex: /^E/ } });
+
+
+2. Find employees whose name ends with n. 
+db.Employee.find({ ENAME: { $regex: /n$/ } });
+
+3. Find employees whose name starts with S or M in your collection. 
+db.Employee.find({ ENAME: { $regex: /^[SM]/ } });
+
+
+4. Find employees where city starts with A to M in your collection. 
+db.Employee.find({ CITY: { $regex: /^[A-M]/ } });
+
+
+5. Find employees where city name ends in ‘ney’. 
+db.Employee.find({ CITY: { $regex: /ney$/ } });
+
+
+6. Display employee info whose name contains n. (Both uppercase(N) and lowercase(n)) 
+db.Employee.find({ ENAME: { $regex: /n/i } });
+
+
+7. Display employee info whose name starts with E and having 5 characters. 
+db.Employee.find({ ENAME: { $regex: /^E.{4}$/ } });
+
+
+8. Display employee whose name start with S and ends in a. 
+db.Employee.find({ ENAME: { $regex: /^S.*a$/ } });
+
+
+9. Display EID, ENAME, CITY and SALARY whose name starts with ‘Phi’. 
+db.Employee.find({ ENAME: { $regex: /^S.*a$/ } });
+ 	
+
+10. Display ENAME, JOININGDATE and CITY whose city contains ‘dne’ as three letters in city name. 
+db.Employee.find({ ENAME: { $regex: /^S.*a$/ } });
+
+
+11. Display ENAME, JOININGDATE and CITY who does not belongs to city London or Sydney. 
+db.Employee.find({ CITY: { $nin: ["London", "Sydney"] } }, { ENAME: 1, JOININGDATE: 1, CITY: 1 });
+
+ 
+12. Find employees whose names start with 'J'. 
+db.Employee.find({ ENAME: { $regex: /^J/ } });
+
+
+13. Find employees whose names end with 'y'. 
+db.Employee.find({ ENAME: { $regex: /y$/ } });
+
+
+14. Find employees whose names contain the letter 'a'. 
+db.Employee.find({ ENAME: { $regex: /a/ } });
+
+
+15. Find employees whose names contain either 'a' or 'e'. 
+db.Employee.find({ ENAME: { $regex: /[ae]/ } });
+
+
+16. Find employees whose names start with 'J' and end with 'n'. 
+db.Employee.find({ ENAME: { $regex: /^J.*n$/ } });
+
+
+17. Find employees whose CITY starts with 'New'. 
+db.Employee.find({ CITY: { $regex: /^New/ } });
+
+
+18. Find employees whose CITY does not start with 'L' 
+db.Employee.find({ CITY: { $not: { $regex: /^L/ } } });
+
+
+19. Find employees whose CITY contains the word 'York'. 
+db.Employee.find({ CITY: { $regex: /York/ } });
+
+
+20. Find employees whose names have two consecutive vowels (a, e, i, o, u). 
+db.Employee.find({ ENAME: { $regex: /[aeiou]{2}/ } });
+
+
+21. Find employees whose names have three or more letters. 
+db.Employee.find({ ENAME: { $regex: /^.{3,}$/ } });
+
+
+22. Find employees whose names have exactly 4 letters.
+db.Employee.find({ ENAME: { $regex: /^.{4}$/ } });
+
+ 
+23. Find employees whose names start with either 'S' or 'M'.
+db.Employee.find({ ENAME: { $regex: /^[SM]/ } });
+
+ 
+24. Find employees whose names contain 'il' anywhere. 
+db.Employee.find({ ENAME: { $regex: /il/ } });
+
+
+25. Find employees whose names do not contain 'a'. 
+db.Employee.find({ ENAME: { $not: { $regex: /a/ } } });
+
+
+26. Find employees whose names contain any digit.
+db.Employee.find({ ENAME: { $regex: /\d/ } });
+
+ 
+27. Find employees whose names contain exactly one vowel.
+db.Employee.find({ ENAME: { $regex: /^[^aeiou]*[aeiou][^aeiou]*$/ } });
+
+ 
+28. Find employees whose names start with any uppercase letter followed by any lowercase letter.
+db.Employee.find({ ENAME: { $regex: /^[A-Z][a-z]/ } });
+
+
+
+
+---------------------------------PART-B------------------------------
+db.Student.insertMany([
+  {
+    ROLLNO: 101,
+    SNAME: "Vina",
+    DEPARTMENT: "CE",
+    FEES: 15000,
+    SEM: 3,
+    GENDER: "Female",
+    CITY: "Rajkot"
+  },
+  {
+    ROLLNO: 102,
+    SNAME: "Krisha",
+    DEPARTMENT: "EC",
+    FEES: 8000,
+    SEM: 5,
+    GENDER: "Female",
+    CITY: "Ahmedabad"
+  },
+  {
+    ROLLNO: 103,
+    SNAME: "Priti",
+    DEPARTMENT: "Civil",
+    FEES: 12000,
+    SEM: 7,
+    GENDER: "Female",
+    CITY: "Baroda"
+  },
+  {
+    ROLLNO: 104,
+    SNAME: "Mitul",
+    DEPARTMENT: "CE",
+    FEES: 15000,
+    SEM: 3,
+    GENDER: "Male",
+    CITY: "Rajkot"
+  },
+  {
+    ROLLNO: 105,
+    SNAME: "Keshav",
+    DEPARTMENT: "CE",
+    FEES: 15000,
+    SEM: 3,
+    GENDER: "Male",
+    CITY: "Jamnagar"
+  },
+  {
+    ROLLNO: 106,
+    SNAME: "Zarna",
+    DEPARTMENT: "Civil",
+    FEES: 12000,
+    SEM: 5,
+    GENDER: "Female",
+    CITY: "Ahmedabad"
+  },
+  {
+    ROLLNO: 107,
+    SNAME: "Nima",
+    DEPARTMENT: "EE",
+    FEES: 9000,
+    SEM: 5,
+    GENDER: "Female",
+    CITY: "Rajkot"
+  },
+  {
+    ROLLNO: 108,
+    SNAME: "Dhruv",
+    DEPARTMENT: "Mechanical",
+    FEES: 10000,
+    SEM: 5,
+    GENDER: "Male",
+    CITY: "Rajkot"
+  },
+  {
+    ROLLNO: 109,
+    SNAME: "Krish",
+    DEPARTMENT: "Mechanical",
+    FEES: 10000,
+    SEM: 7,
+    GENDER: "Male",
+    CITY: "Baroda"
+  },
+  {
+    ROLLNO: 110,
+    SNAME: "Zeel",
+    DEPARTMENT: "EE",
+    FEES: 9000,
+    SEM: 3,
+    GENDER: "Female",
+    CITY: "Jamnagar"
+  }
+]);
+
+
+
+1. Display documents where sname start with K. 
+db.collection.find({ sname: /^K/ })
+
+
+2. Display documents where sname starts with Z or D.
+db.collection.find({ $or: [{ sname: /^Z/ }, { sname: /^D/ }] })
+
+ 
+3. Display documents where city starts with A to R. 
+db.collection.find({ city: /^[A-R]/ })
+
+
+4. Display students’ info whose name start with P and ends with i. 
+db.collection.find({ sname: /^P.*i$/ })
+
+
+5. Display students’ info whose department name starts with ‘C’. 
+db.collection.find({ department: /^C/ })
+
+
+6. Display name, sem, fees, and department whose city contains ‘med’ as three letters somewhere in city name.
+db.collection.find({ city: /med/ }, { _id: 0, name: 1, sem: 1, fees: 1, department: 1 })
+
+ 
+7. Display name, sem, fees, and department who does not belongs to city Rajkot or Baroda.  
+db.collection.find({ city: { $nin: ['Rajkot', 'Baroda'] } }, { _id: 0, name: 1, sem: 1, fees: 1, department: 1 })
+
+
+8. Find students whose names start with 'K' and are followed by any character. 
+db.collection.find({ sname: /^K./ })
+
+
+9. Find students whose names end with 'a'.
+db.collection.find({ sname: /a$/ })
+
+ 
+10. Find students whose names contain 'ri'. (case-insensitive)
+db.collection.find({ sname: /ri/i })
+
+
+
+
+--------------------Part – C ----------------
+
+
+1. Find students whose names start with a vowel (A, E, I, O, U). 
+db.collection.find({ sname: /^[AEIOU]/ })
+
+
+2. Find students whose CITY ends with 'pur' or 'bad'. 
+db.collection.find({ $or: [{ city: /pur$/ }, { city: /bad$/ }] })
+
+
+3. Find students whose FEES starts with '1'. 
+db.collection.find({ fees: /^1/ })
+
+
+4. Find students whose SNAME starts with 'K' or 'V'.
+db.collection.find({ fees: /^1/ })
+
+ 
+5. Find students whose CITY contains exactly five characters. 
+db.collection.find({ city: /^.{5}$/ })
+
+
+6. Find students whose names do not contain the letter 'e'. 
+db.collection.find({ sname: { $not: /e/ } })
+
+
+7. Find students whose CITY starts with 'Ra' and ends with 'ot'.
+db.collection.find({ sname: { $not: /e/ } })
+
+ 
+8. Find students whose names contain exactly one vowel. 
+db.collection.find({ sname: /^[^aeiou]*[aeiou][^aeiou]*$/i })
+
+
+9. Find students whose names start and end with the same letter. 
+db.collection.find({ sname: /^(.).*?\1$/ })
+
+
+10. Find students whose DEPARTMENT starts with either 'C' or 'E'. 
+db.collection.find({ department: /^[CE]/ })
+
+
+11. Find students whose SNAME has exactly 5 characters.
+db.collection.find({ sname: /^.{5}$/ })
+
+ 
+12. Find students whose GENDER is Female and CITY starts with 'A'.
+db.collection.find({ gender: 'Female', city: /^A/ })
+
+
